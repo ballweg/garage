@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Garage Door control</title>
+    <script src="main.js"></script>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Garage Door</h1>
+    <div class="controls center">
+      <div class="button btn-large" id="trigger">Trigger</div>
+    </div>
+    <h2>Status</h2>
+    <div id="status" class="center"></div>
+    <div class="controls center">
+      <label for="token">Device Token</label>
+      <input id="token" type="text" name="token"/>
+      <button id="setToken">Set</button>
+    </div>
+    <script>
+      // check online
+      checkStatus();
+      // bind handlers
+      document.getElementById("trigger").onclick = function(){ sendPulse(1000) };
+      document.getElementById("setToken").onclick = function(){setToken()};
+    </script>
+  </body>
+</html>

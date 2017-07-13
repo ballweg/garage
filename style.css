@@ -1,0 +1,40 @@
+body, input, button{
+  font-family: monospace;
+}
+body{
+  background-color: #eaeaea;
+}
+
+h1, h2{
+  text-align: center;
+  margin-top: 3em;
+}
+.center{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.circle, .button, .btn-large{
+  cursor: pointer;
+  text-align: center;
+}
+
+.button, button, .btn-large{
+  background-color: #333;
+  color: #fff;
+  border-radius: 3px;
+  display: inline-block;
+  border: none;
+}
+
+.btn-large{
+  line-height: 3em;
+  width: 6em;
+  height: 3em;
+}
+
+.controls{
+  margin: 1em 0;
+  color: #222;
+}
