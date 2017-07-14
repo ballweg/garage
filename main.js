@@ -73,6 +73,8 @@ function sendPulse(msec){
   ajax(api+1+token, 'post')
   // upon success,
   // update UI to say relay is off
+  document.getElementById("trigger").classList.add('active');
+  document.getElementById("light").classList.add('active');
   document.getElementById("status").textContent = "Sending...";
   console.log("relay contact: " + api + 1 + token);
 
@@ -81,6 +83,9 @@ function sendPulse(msec){
     ajax(api+0+token, 'post');
     // upon success, wait $sec
     // update UI to say relay is sending
+
+    document.getElementById("trigger").classList.remove('active');
+    document.getElementById("light").classList.remove('active');
     document.getElementById("status").textContent = "Sent.";
     console.log("relay open: " + api + 0 + token);
   }, msec);
@@ -88,22 +93,26 @@ function sendPulse(msec){
 }
 
 function checkStatus(){
-  var token = "?access_token=" + getToken();
-  var api   = "https://us.wio.seeed.io/v1/node/GroveRelayD0/onoff_status/";
-  ajax(api+token, 'get');
+  var token = getToken();
+  if (token == null){
+    document.getElementById("status").textContent = "Enter device token"
+  } else {
+    var api   = "https://us.wio.seeed.io/v1/node/GroveRelayD0/onoff_status/";
+    ajax(api+"?access_token="+token, 'get');
+  }
 }
 
 // set the auth token in local storage
 // allows me to come back and use easily and not post token outside here.
 function setToken(){
   var token = document.getElementById("token").value;
-  localStorage.setItem('token', token);
+  localStorage.setItem('garageToken', token);
 }
 
 // gets the token from local storage, puts it in UI, returns to methods
 //
 function getToken(){
-  var token = localStorage.getItem('token', token);
+  var token = localStorage.getItem('garageToken', token);
   if (token != ''){
     document.getElementById("token").value = token;
   }

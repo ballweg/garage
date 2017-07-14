@@ -15,10 +15,26 @@ h1, h2{
   text-align: center;
 }
 
-.circle, .button, .btn-large{
+.light, .button, .btn-large{
   cursor: pointer;
   text-align: center;
+  background-color: rgba(0,90,0,1);
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  border: solid 1px rgba(0,80,0,1);
 }
+
+.light{
+  position: absolute;
+  margin-left: 1em;
+  margin-top: 1em;
+}
+.light.active{
+  transition: all ease 0.1s;
+  background-color: rgba(0,180,0,1);
+}
+
 
 .button, button, .btn-large{
   background-color: #333;
@@ -29,9 +45,22 @@ h1, h2{
 }
 
 .btn-large{
+  font-size: 3em;
   line-height: 3em;
   width: 6em;
   height: 3em;
+  box-shadow: 2px 7px 8px rgba(0,0,0,.2);
+  margin-top: 0px;
+  margin-bottom: 4px;
+}
+
+.btn-large.active{
+  transition: all ease 0.1s;
+  /*transition-property: margin-top margin-bottom;
+  transition-duration: 0.1s, 0.1s;*/
+  margin-top:4px;
+  margin-bottom: 0px;
+  box-shadow: 2px 3px 8px rgba(0,0,0,.2)
 }
 
 .controls{
